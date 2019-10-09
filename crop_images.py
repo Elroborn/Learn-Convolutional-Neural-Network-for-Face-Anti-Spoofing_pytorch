@@ -36,6 +36,8 @@ def crop_face(img, bbox, crop_sz, bbox_ext, extra_pad=0):
 
 
 def process_db_casia(db_dir, save_dir, scale, crop_sz):
+    if not os.path.exists(save_dir):
+        os.makedirs(save_dir)
     file_list = open(save_dir + "/file_list.txt", "w") # save info
     for file in open(db_dir+"/file_list.txt","r"):
         print("processing(scale %f): %s" % (scale, file))
